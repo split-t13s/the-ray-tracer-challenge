@@ -10,7 +10,6 @@ case class Point(x: Double, y: Double, z: Double, w: Double = 1) extends Tuple {
     Point(this.x + vector.x,
           this.y + vector.y,
           this.z + vector.z,
-          this.w + vector.w
     )
   }
 
@@ -19,7 +18,6 @@ case class Point(x: Double, y: Double, z: Double, w: Double = 1) extends Tuple {
     Vector(this.x - point.x,
            this.y - point.y,
            this.z - point.z,
-           this.w - point.w
     )
   }
   
@@ -28,16 +26,30 @@ case class Point(x: Double, y: Double, z: Double, w: Double = 1) extends Tuple {
     Point(this.x - vector.x,
           this.y - vector.y,
           this.z - vector.z,
-          this.w - vector.w
     )
   }
   
-  @targetName("unary")
+  @targetName("negate")
   def unary_- : Point = {
     Point(0.0 - this.x,
           0.0 - this.y,
           0.0 - this.z,
-          this.w
+    )
+  }
+  
+  @targetName("multiply")
+  def *(scalar: Double): Point = {
+    Point(this.x * scalar,
+          this.y * scalar,
+          this.z * scalar      
+    )
+  }
+  
+  @targetName("divide")
+  def /(scalar: Double): Point = {
+    Point(this.x / scalar,
+          this.y / scalar,
+          this.z / scalar
     )
   }
 

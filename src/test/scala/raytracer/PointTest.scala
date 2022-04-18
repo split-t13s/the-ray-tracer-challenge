@@ -57,4 +57,31 @@ class PointTest extends AnyFlatSpec with Matchers {
     result shouldEqual newPoint
   }
 
+  "Multiplying a point by a scalar" should "return the correctly scaled point" in {
+    val p: Point = Point(1, -2 ,3)
+
+    val newPoint: Point = Point(3.5, -7, 10.5)
+    val result: Point = p * 3.5
+
+    result shouldEqual newPoint
+  }
+
+  "Multiplying a point by a fractional scalar" should "divide the point" in {
+    val p: Point = Point(1, -2 ,3)
+
+    val newPoint: Point = Point(0.5, -1, 1.5)
+    val result: Point = p * 0.5
+
+    result shouldEqual newPoint
+  }
+
+  "Dividing a point by a scalar" should "return the correctly scaled point" in {
+    val p: Point = Point(1, -2 ,3)
+
+    val newPoint: Point = Point(0.5, -1, 1.5)
+    val result: Point = p / 2
+
+    result shouldEqual newPoint
+  }
+
 }
